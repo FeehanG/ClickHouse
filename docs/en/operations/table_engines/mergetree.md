@@ -338,20 +338,20 @@ TTL date_time + INTERVAL 15 HOUR
 
 **Column TTL**
 
-When the values in the column expire, ClickHouse replace them with the default values for the column data type. If all the column values in the data part become expired, ClickHouse deletes this column from the data part in a filesystem.
+When the values in the column expire, ClickHouse replace them with the default values for the column data type. If all the column values in the data part expire, ClickHouse deletes this column from the data part in a filesystem.
 
 The `TTL` clause cannot be used for key columns.
 
 **Table TTL**
 
-When some data in table expires, ClickHouse deletes all the corresponding rows.
+When data in table expires, ClickHouse deletes all corresponding rows.
 
-**Cleaning up of Data**
+**Removing Data**
 
-Data with expired TTL is removed, when ClickHouse merges data parts.
+Data with an expired TTL is removed when ClickHouse merges data parts.
 
-When ClickHouse see that some data is expired, it performs off-schedule merge. To control frequency of such merges, you can set [merge_with_ttl_timeout](#mergetree_setting-merge_with_ttl_timeout). If it is too low, many off-schedule merges consume much resources.
+When ClickHouse sees that data is expired, it performs an off-schedule merge. To control the frequency of such merges, you can set [merge_with_ttl_timeout](#mergetree_setting-merge_with_ttl_timeout). A low value may create many off-schedule merges, which can consume a lot of resources.
 
-If you perform the `SELECT` query between merges you can get the expired data. To avoid it, use the [OPTIMIZE](../../query_language/misc.md#misc_operations-optimize) query before `SELECT`.
+If you perform the `SELECT` query between merges, you may get the expired data. To avoid this, use the [OPTIMIZE](../../query_language/misc.md#misc_operations-optimize) query before `SELECT`.
 
 [Original article](https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/) <!--hide-->
