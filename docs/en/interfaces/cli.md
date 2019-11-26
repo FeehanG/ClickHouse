@@ -1,8 +1,8 @@
 # Command-line Client
 
-ClickHouse provides the native command line client `clickhouse-client`. The client supports command-line options and configuration files. For more information, see "[Configuring](#interfaces_cli_configuration)".
+ClickHouse provides a native command-line client: `clickhouse-client`. The client supports command-line options and configuration files. For more information, see "[Configuring](#interfaces_cli_configuration)".
 
-[Install](../getting_started/index.md) it by the `clickhouse-client` package and run it by the command `clickhouse-client`.
+[Install](../getting_started/index.md) it from the `clickhouse-client` package and run it with the command `clickhouse-client`.
 
 ```bash
 $ clickhouse-client
@@ -13,7 +13,7 @@ Connected to ClickHouse server version 19.17.1 revision 54428.
 :)
 ```
 
-Different versions of client and server are compatible, but some features may be disabled for older clients. We don't recommend using different versions of the client and the server app. When you try to use the client of the older version, then the server, `clickhouse-client` displays the message:
+Different client and server versions are supported, but some features may be disabled for older clients. We recommend the client and  server app use the same version. When you try to use a server with an older version of the client, `clickhouse-client` displays the message:
 
 ```
 ClickHouse client version is older than ClickHouse server. It may lack support for new features.
